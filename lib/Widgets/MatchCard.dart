@@ -50,6 +50,8 @@ class _MatchCardState extends State<MatchCard> {
             ),
           ),
           new Positioned(
+            bottom: ScreenUtil().setHeight(40.0),
+            left: ScreenUtil().setWidth(40.0),
             child: new Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,9 +70,11 @@ class _MatchCardState extends State<MatchCard> {
                                 blurRadius: 10.0)
                           ],
                           color: Colors.white,
+                          fontSize: ScreenUtil().setSp(95.0),
                           fontWeight: FontWeight.w800),
                     ),
                     new SizedBox(
+                      width: ScreenUtil().setWidth(40.0),
                     ),
                     new Text(
                       widget.age.toString(),
@@ -82,11 +86,13 @@ class _MatchCardState extends State<MatchCard> {
                                 blurRadius: 10.0)
                           ],
                           color: Colors.white,
+                          fontSize: ScreenUtil().setSp(70.0),
                           fontWeight: FontWeight.w300),
                     ),
                   ],
                 ),
                 new SizedBox(
+                  height: ScreenUtil().setHeight(10.0),
                 ),
                 new Text(
                   widget.bio,
@@ -98,6 +104,7 @@ class _MatchCardState extends State<MatchCard> {
                             offset: new Offset(1.0, 2.0),
                             blurRadius: 10.0)
                       ],
+                      fontSize: ScreenUtil().setSp(55.0),
                       fontWeight: FontWeight.w400),
                 ),
               ],

@@ -23,6 +23,7 @@ class _TinderTabState extends State<TinderTab>
   CardController _cardController;
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context) ;// ScreenUtil使うならいるやつ（これ入れらな全部エラー起きる）
     return Stack(//Widgetを重ねるウィジット
       children: <Widget>[
         new AnimatedContainer(
@@ -39,10 +40,12 @@ class _TinderTabState extends State<TinderTab>
                         children: <Widget>[
                           new CircularProgressIndicator(),
                           new SizedBox(
+                            height: ScreenUtil().setHeight(30.0),
                           ),
                           new Text(
                             "Searching nearby matchings ...",
                             style: new TextStyle(
+                                fontSize: ScreenUtil().setSp(60.0),
                                 fontWeight: FontWeight.w200,
                                 color: Colors.grey.shade600),
                           )
@@ -51,23 +54,29 @@ class _TinderTabState extends State<TinderTab>
                     : Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
-                          new SizedBox(                            
+                          new SizedBox(
+                            height: ScreenUtil().setHeight(550.0),
                           ),
                           new ClipRRect(
                             borderRadius: BorderRadius.circular(100.0),
-                            child: new Image(                                                          
+                            child: new Image(
+                                width: ScreenUtil().setWidth(400),
+                                height: ScreenUtil().setWidth(400),
                                 fit: BoxFit.cover,
                                 image:
                                     new AssetImage('assets/images/abhishekProfile.JPG')),
                           ),
-                          new SizedBox(                            
+                          new SizedBox(
+                            height: ScreenUtil().setHeight(40.0),
                           ),
                           new Padding(
-                            padding: EdgeInsets.symmetric(),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: ScreenUtil().setWidth(60.0)),
                             child: new Text("There is no one new around you ...",
                                 textAlign: TextAlign.center,
                                 style: new TextStyle(
                                     wordSpacing: 1.2,
+                                    fontSize: ScreenUtil().setSp(55.0),
                                     fontWeight: FontWeight.w300,
                                     color: Colors.grey.shade600)),
                           )
@@ -79,10 +88,15 @@ class _TinderTabState extends State<TinderTab>
         new Positioned(//これは下のボタンのとこ
           bottom: 0.0,
           child: new Container(
+            height: ScreenUtil().setWidth(220.0),
+            width: MediaQuery.of(context).size.width,
             child: new Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 new Container(
+                  padding: EdgeInsets.all(ScreenUtil().setWidth(15.0)),
+                  height: ScreenUtil().setHeight(80.0),
+                  width: ScreenUtil().setHeight(80.0),
                   decoration: new BoxDecoration(
                       boxShadow: [
                         new BoxShadow(
@@ -114,6 +128,9 @@ class _TinderTabState extends State<TinderTab>
                       }),
                 ),
                 new Container(
+                  padding: EdgeInsets.all(ScreenUtil().setSp(30.0)),
+                  height: ScreenUtil().setHeight(110.0),
+                  width: ScreenUtil().setHeight(110.0),
                   decoration: new BoxDecoration(
                       boxShadow: [
                         new BoxShadow(
@@ -146,6 +163,8 @@ class _TinderTabState extends State<TinderTab>
                       }),
                 ),
                 new Container(
+                  height: ScreenUtil().setHeight(80.0),
+                  width: ScreenUtil().setHeight(80.0),
                   decoration: new BoxDecoration(
                       boxShadow: [
                         new BoxShadow(
@@ -164,6 +183,7 @@ class _TinderTabState extends State<TinderTab>
                   child: new ShaderMask(
                       child: new Icon(
                         Icons.star,
+                        size: ScreenUtil().setHeight(65.0),
                       ),
                       blendMode: BlendMode.srcATop,
                       shaderCallback: (Rect bounds) {
@@ -178,6 +198,9 @@ class _TinderTabState extends State<TinderTab>
                       }),
                 ),
                 new Container(
+                  padding: EdgeInsets.all(ScreenUtil().setSp(30.0)),
+                  height: ScreenUtil().setHeight(110.0),
+                  width: ScreenUtil().setHeight(110.0),
                   decoration: new BoxDecoration(
                       boxShadow: [
                         new BoxShadow(
@@ -196,6 +219,7 @@ class _TinderTabState extends State<TinderTab>
                   child: new ShaderMask(
                       child: new Icon(
                         Icons.favorite,
+                        size: ScreenUtil().setHeight(65.0),
                       ),
                       blendMode: BlendMode.srcATop,
                       shaderCallback: (Rect bounds) {
@@ -210,6 +234,9 @@ class _TinderTabState extends State<TinderTab>
                       }),
                 ),
                 new Container(
+                  padding: EdgeInsets.all(ScreenUtil().setWidth(15.0)),
+                  height: ScreenUtil().setHeight(80.0),
+                  width: ScreenUtil().setHeight(80.0),
                   decoration: new BoxDecoration(
                       boxShadow: [
                         new BoxShadow(
